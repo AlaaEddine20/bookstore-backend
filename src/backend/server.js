@@ -1,9 +1,10 @@
 const dotenv = require("dotenv")
 dotenv.config()
 const express = require("express")
-// const listEndpoints = require("express-list-endpoints")
+const listEndpoints = require("express-list-endpoints")
 const cors = require("cors")
 const productsRouter = require("./productsDB")
+const cartsRouter = require("./cart/cart")
 const {
     notFoundHandler,
     unauthorizedHandler,
@@ -14,7 +15,7 @@ const {
 
 const server = express()
 
-const port = process.env.PORT || 3005
+const port = process.env.PORT || 3009
 
 const loggerMiddleware = (req, res, next) => {
     console.log(`Logged ${req.url} ${req.method} -- ${new Date()} `)
@@ -26,7 +27,7 @@ server.use(express.json())
 server.use(loggerMiddleware)
 
 server.use("/products", productsRouter)
-
+server.use("/carts", cartsRouter)
 
 
 

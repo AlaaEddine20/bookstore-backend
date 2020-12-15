@@ -183,7 +183,8 @@ productsRouter.post("/:id/reviews", reviewsValidation, async (req, res, next) =>
 
 productsRouter.delete("/:id/reviews/:reviewID", reviewsValidation, async (req, res, next) => {
     try {
-        
+        const products = await getProducts()
+        const productFound = products.find( product => product.ID === req.params.id)
     } catch (error) {
         next(error)
     }
