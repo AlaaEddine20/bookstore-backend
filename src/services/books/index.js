@@ -5,6 +5,13 @@ const { getBooks, writeBooks } = require("../../fsUtilities");
 
 const booksRouter = express.Router();
 
+const moviesValidation = [
+  check("title").exists().withMessage("Movie title is required"),
+  check("price").exists().withMessage("Price is required"),
+  check("category")
+    .exists()
+    .withMessage("Category will help users to find your movier easily!"),
+];
 const commetsValidation = [
   check("UserName").exists().withMessage("UserName required!"),
   check("Text").exists().withMessage("Leave a comment!"),
@@ -81,22 +88,23 @@ booksRouter.post("/", async (req, res, next) => {
   }
 });
 
-booksRouter.put("/:asin", async (req, res, next) => {
+booksRouter.put("/:asin", moviesValidation, async (req, res, next) => {
   try {
-    const validatedData = matchedData(req);
+    const validationErrors = validationResult(req);
+
     const books = await getBooks();
 
     const bookIndex = books.findIndex((book) => book.asin === req.params.asin);
 
-    if (bookIndex !== -1) // book found
-    {      
-      const updatedBooks = [
+    if (bookIndex !== -1) {
+      // Book found
+      const updatedBook = [
         ...books.slice(0, bookIndex),
-        { ...books[bookIndex], ...validatedData },
+        { ...books[bookIndex], ...req.body },
         ...books.slice(bookIndex + 1),
       ];
-      await writeBooks(updatedBooks);
-      res.send(updatedBooks);
+      await writeBooks(updatedBook);
+      res.send(updatedBook);
     } else {
       const err = new Error();
       err.httpStatusCode = 404;
@@ -192,8 +200,8 @@ booksRouter.delete(
         const filteredComments = books[bookIndex].comments.filter(
           (comment) => comment.CommentID !== req.params.commentID
         );
-        books[bookIndex].comments = filteredComments
-        await writeBooks(books)
+        books[bookIndex].comments = filteredComments;
+        await writeBooks(books);
         res.status(204).send(books);
       } else {
         const error = new Error();

@@ -1,47 +1,26 @@
 [
   {
-    "asin": "1940026091",
-    "title": "Pandemic (The Extinction Files, Book 1)",
-    "img": "https://images-na.ssl-images-amazon.com/images/I/91xrEMcvmQL.jpg",
-    "price": 7.81,
-    "category": "scifi",
-    "comments": []
-  },
-  {
     "asin": "0425264041",
     "title": "Shards of Hope (Psy-Changeling Novel, A)",
     "img": "https://images-na.ssl-images-amazon.com/images/I/91ku%2B0LppPL.jpg",
     "price": 7.59,
-    "category": "scifi",
-    "comments": []
+    "category": "scifi"
   },
   {
     "asin": "1250082757",
     "title": "Born of Vengeance: The League: Nemesis Rising",
     "img": "https://images-na.ssl-images-amazon.com/images/I/91J28bj3PYL.jpg",
     "price": 26.09,
-    "category": "scifi"
-  },
-  {
-    "asin": "045146799X",
-    "title": "Gameboard of the Gods",
-    "img": "https://images-na.ssl-images-amazon.com/images/I/81-vppSolJL.jpg",
-    "price": 7.59,
-    "category": "scifi"
-  },
-  {
-    "asin": "1101987790",
-    "title": "Silver Silence (Psy-Changeling Trinity)",
-    "img": "https://images-na.ssl-images-amazon.com/images/I/91eGxsWGH7L.jpg",
-    "price": 17.6,
-    "category": "scifi"
+    "category": "scifi",
+    "comments": []
   },
   {
     "asin": "0987575422",
     "title": "The Battle of Evernight - Special Edition: The Bitterbynde Book #3 (The Bitterbynde Trilogy)",
     "img": "https://images-na.ssl-images-amazon.com/images/I/51vw%2Bn7xZCL.jpg",
     "price": 9.6,
-    "category": "scifi"
+    "category": "scifi",
+    "comments": []
   },
   {
     "asin": "1492667137",
@@ -4835,7 +4814,7 @@
     "asin": "1938821963",
     "title": "A Wing and a Prayer (The John Morano Eco-Adventure Series)",
     "img": "https://images-na.ssl-images-amazon.com/images/I/71VsfUWuQqL.jpg",
-    "price": 7.68,
+    "price": 7.85,
     "category": "fantasy"
   }
 ]
