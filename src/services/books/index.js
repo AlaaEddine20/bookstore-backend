@@ -18,7 +18,6 @@ const commetsValidation = [
 ];
 
 booksRouter.get("/", async (req, res, next) => {
-  // get http:localhost:4001/books?category=scifi&title=whatever
   try {
     const books = await getBooks();
 
